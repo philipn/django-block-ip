@@ -9,11 +9,14 @@ Installation
 * Install *ipcalc* library.
 * Add django_ban in you INSTALLED_APPS.
 * Add option **BAN_POLICY**:  
-  `BAN_POLICY = 'deny,allow'` or `BAN_POLICY = 'allow,deny'`  
+  `BAN_POLICY = 'deny,allow'` or `BAN_POLICY = 'allow,deny'`.
+
   In first case it means that all users are allowed by default,
-  second case restricts access to all users who not in *allow* list.  
+  second case restricts access to all users who not in *allow* list
+
   **Default value is 'allow,deny'**
-* Add `'django_ban.middleware.Ban'` to your `MIDDLEWARE_CLASSESz.
+
+* Add `'django_ban.middleware.Ban'` to your `MIDDLEWARE_CLASSES`.
 * Run ./manage.py syncdb, to create necessary tables.
 * Add one or more entries to the Allow or Deny lists in the admin
   interface. You can just enter a single IP or use a network mask,
