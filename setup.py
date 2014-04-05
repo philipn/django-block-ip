@@ -34,7 +34,7 @@ def get_package_data(package):
 
 setup(
     name='django-block-ip',
-    version='0.1.1',
+    version='0.1.5',
     url='http://github.com/philipn/django-block-ip',
     license='BSD',
     description='Simple IP and IP-range blocking for Django',
@@ -42,7 +42,7 @@ setup(
     author='Philip Neustrom',
     author_email='philipn@gmail.com',
     packages=get_packages('block_ip'),
-    package_data=get_package_data('block_ip'),
+    package_data=get_package_data('.'),
     install_requires=[
         'ipcalc',
     ],
