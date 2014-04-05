@@ -1,7 +1,7 @@
 django-ip-block
 ----------
 
-This is a simple application to restrict access by IP address.  There's a few other apps that do this out there, but they tend to have other features such as rate limiting.  This just blocks, as I think it's best to leave rate-limiting to rate-limiting specific apps.
+This is a simple application to restrict access by IP address.  There's a few other apps that do this out there, but they tend to have other features such as rate limiting.  I think it's best to leave rate-limiting to rate-limiting specific apps, so this just blocks IPs.
 
 Usage
 =====
