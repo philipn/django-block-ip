@@ -1,42 +1,19 @@
-django-ban
+django-ip-block
 ----------
 
-This is a simple application to restrict access to site by IP.
+This is a simple application to restrict access by IP address.  There's a few other apps that do this out there, but they tend to have other features such as rate limiting.  This just blocks, as I think it's best to leave rate-limiting to rate-limiting specific apps.
 
-Installation
-============
+Usage
+=====
 
-* Install *ipcalc* library.
-* Add django_ban in you INSTALLED_APPS.
-* Add option **BAN_POLICY**:  
-  `BAN_POLICY = 'deny,allow'` or `BAN_POLICY = 'allow,deny'`.
+* `pip install django-block-ip`
+* Add `block_ip` to your `INSTALLED_APPS`.
+* Add `block_ip.middleware.BlockIPMiddleware` to your `MIDDLEWARE_CLASSES`.
+* Run `syncdb`.
+* Add one or more entries to the `BlockIP` list in the admin.
+  You can just enter a single IP or use a network mask, like this: 213.67.43.0/24
 
-  In first case it means that all users are allowed by default,
-  second case restricts access to all users who not in *allow* list
+Acknowledgments
+===============
 
-  **Default value is 'allow,deny'**
-
-* Add `'django_ban.middleware.Ban'` to your `MIDDLEWARE_CLASSES`.
-* Run ./manage.py syncdb, to create necessary tables.
-* Add one or more entries to the Allow or Deny lists in the admin
-  interface. You can just enter a single IP or use a network mask,
-  like this: 213.67.43.0/24
-
-Dependencies
-============
-
-* ipcalc >= 0.1 -- http://pypi.python.org/pypi/ipcalc/  
-  `easy_install install ipcalc`
-
-TODO
-===
-
-* Add a text description to the list items.
-* Use html template to render Deny page.
-
-Acknowledges
-============
-
-This application is based on the Justquick's django snippet.
-You can find the original code at http://www.djangosnippets.org/snippets/725/.
-
+This is based on http://github.com/svetlyak40wt/django-ban, which was based on the Justquick's django snippet (http://www.djangosnippets.org/snippets/725/).
