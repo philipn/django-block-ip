@@ -1,5 +1,6 @@
 from django.http import HttpResponseForbidden
 from django.conf import settings
+from django.core.cache import cache
 
 from models import BlockIP
 
@@ -22,7 +23,11 @@ class BlockIPMiddleware(object):
         ip = get_ip(request)
         # TODO: Look into something more optimized for large numbers
         # of blocks. https://github.com/jimfunk/django-postgresql-netfields
-        deny_ips = [i.get_network() for i in BlockIP.objects.all()]
+        block_ips = cache.get('blockip:list')
+        if block_ips is None:
+            block_ips = BlockIP.objects.all()
+            cache.set('blockip:list', block_ips)
+        deny_ips = [i.get_network() for i in block_ips]
 
         for net in deny_ips:
             if ip in net:
