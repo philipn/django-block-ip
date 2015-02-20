@@ -34,7 +34,7 @@ def get_package_data(package):
 
 setup(
     name='django-block-ip',
-    version='0.1.5',
+    version='0.2.0',
     url='http://github.com/philipn/django-block-ip',
     license='BSD',
     description='Simple IP and IP-range blocking for Django',
