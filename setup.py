@@ -34,13 +34,13 @@ def get_package_data(package):
 
 setup(
     name='django-block-ip',
-    version='0.2.1',
-    url='http://github.com/mz52arsi/django-block-ip',
+    version='0.2.0',
+    url='http://github.com/philipn/django-block-ip',
     license='BSD',
     description='Simple IP and IP-range blocking for Django',
     long_description=open('README.md', 'r').read(),
-    author='Moiz Arsiwala',
-    author_email='mz52arsi@gmail.com',
+    author='Philip Neustrom',
+    author_email='philipn@gmail.com',
     packages=get_packages('block_ip'),
     package_data=get_package_data('.'),
     install_requires=[
