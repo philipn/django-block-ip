@@ -2,7 +2,7 @@ from django.http import HttpResponseForbidden
 from django.conf import settings
 from django.core.cache import cache
 
-from models import BlockIP
+from .models import BlockIP
 
 
 def get_ip(req):
