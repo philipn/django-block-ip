@@ -1,6 +1,9 @@
 from django.contrib import admin
 
+
 from .models import BlockIP 
 
 
-admin.site.register(BlockIP)
+@admin.register(BlockIP)
+class BlockIPAdmin(admin.ModelAdmin):
+	pass
