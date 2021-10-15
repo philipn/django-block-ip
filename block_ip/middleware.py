@@ -1,6 +1,7 @@
 from django.http import HttpResponseForbidden
 from django.conf import settings
 from django.core.cache import cache
+from django.utils.deprecation import MiddlewareMixin
 
 from .models import BlockIP
 
@@ -16,7 +17,7 @@ def is_ip_in_nets(ip, nets):
     return False
 
 
-class BlockIPMiddleware(object):
+class BlockIPMiddleware(MiddlewareMixin):
     def process_request(self, request):
         is_banned = False
 
@@ -36,6 +37,6 @@ class BlockIPMiddleware(object):
 
         if is_banned:
             # delete sessions when denied
-            for k in request.session.keys():
+            for k in list(request.session.keys()):
                 del request.session[k]
             return HttpResponseForbidden("")

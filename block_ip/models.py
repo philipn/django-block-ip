@@ -5,7 +5,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.cache import cache
 from django.db.models.signals import post_save, post_delete
-from django.utils.encoding import python_2_unicode_compatible
+from six import python_2_unicode_compatible
 
 
 @python_2_unicode_compatible
