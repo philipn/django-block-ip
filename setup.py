@@ -45,6 +45,7 @@ setup(
     package_data=get_package_data('.'),
     install_requires=[
         'ipcalc',
+        'six',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
